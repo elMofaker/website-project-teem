@@ -322,6 +322,8 @@ header {
     }
 
     /* end hero */
+
+
 }
 
 /* start about */
@@ -340,7 +342,7 @@ header {
 
     .section-title {
         color: #007b83;
-        font-size: 36px;
+        font-size: 1.9rem;
         margin-bottom: 40px;
     }
 
@@ -384,9 +386,18 @@ header {
 
     .card-text {
         font-size: 0.9rem;
-        line-height: 1.6;
+        line-height: 1.9;
         color: var(--text-light);
     }
+}
+
+@media (max-width: 768px) {
+    #about-collage {
+        .section-title {
+            font-size: 1.6rem;
+        }
+    }
+
 }
 
 /* end about */
@@ -395,7 +406,7 @@ header {
 
     h2 {
         color: #007b83;
-        font-size: 36px;
+        font-size: 1.9rem;
         margin-bottom: 40px;
     }
 
@@ -411,6 +422,16 @@ header {
     img:hover {
         transform: scale(1.03);
     }
+}
+
+@media (max-width: 768px) {
+    .collage {
+
+        h2 {
+            font-size: 1.6rem;
+        }
+    }
+
 }
 
 /* end collage */
