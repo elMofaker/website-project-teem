@@ -3,29 +3,28 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Borg El Arab Technological University</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <!-- start nav -->
     <header>
         <div class="logo">
             <img src="resource/LogoNav.svg" alt="University Logo" />
         </div>
         <nav>
             <ul id="main-nav-list">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Faculties</a>
-                    <div class="dropdown-content">
-                        <a href="#">College of Industry and Technology </a>
-                        <a href="#">Faculty of Health Sciences Technology </a>
-
-                    </div>
+                <li class="active">
+                    <a href="#">Home</a>
                 </li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">About The Collage</a></li>
+                <li>
+                    <a href="page/faculties/faculties.html">Faculties</a>
+                </li>
+                <li><a href="page/news/news.html">News</a></li>
+                <li><a href="page/about-the-collage/about-the-collage.html">About The Collage</a></li>
             </ul>
         </nav>
         <button class="burger-menu" id="burger-menu" aria-label="Toggle Menu">
@@ -34,12 +33,13 @@
             <span></span>
         </button>
     </header>
-
+    <!-- end nav -->
+    <!-- start hero -->
     <main>
         <div class="slider-container">
             <div class="slider">
                 <div class="slide">
-                    <img src="resource/College1.svg" alt="University Campus Image 1" style="" />
+                    <img src="resource/College1.svg" alt="University Campus Image 1" />
                     <div class="slide-content">
                         <h1>Welcome To Borg El Arab Technological University</h1>
                         <p>
@@ -70,8 +70,140 @@
             <div class="slider-dots"></div>
         </div>
     </main>
+    <!-- end hero -->
+    <!-- start about -->
+    <section id="about-collage">
+        <div class="container">
+            <h2 class="section-title  mb-4 fw-bold text-center">About The Collage</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <img src="resource/about-1.svg" alt="Faculties icon" class="icon">
+                    </div>
+                    <h3 class="card-title">+2 Faculties</h3>
+                    <p class="card-text">
+                        Lorem ipsum cursus eget nunc fermentum pharetra ullamcorper lorem sed turpis in sed pretium
+                        magna risus metus sit malesuada adipiscing ac at aliquam eget condimentum risus pulvinar platea
+                        ac magna laoreet.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <img src="resource/about-2.svg" alt="Program icon" class="icon">
+                    </div>
+                    <h3 class="card-title">+9 Program</h3>
+                    <p class="card-text">
+                        Lorem ipsum cursus eget nunc fermentum pharetra ullamcorper lorem sed turpis in sed pretium
+                        magna risus metus sit malesuada adipiscing ac at aliquam eget condimentum risus pulvinar platea
+                        ac magna laoreet.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="icon-wrapper">
+                        <img src="resource/about-3.svg" alt="Students icon" class="icon">
+                    </div>
+                    <h3 class="card-title">+5000 Student</h3>
+                    <p class="card-text">
+                        Lorem ipsum cursus eget nunc fermentum pharetra ullamcorper lorem sed turpis in sed pretium
+                        magna risus metus sit malesuada adipiscing ac at aliquam eget condimentum risus pulvinar platea
+                        ac magna laoreet.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end about -->
+    <!-- start collage -->
+    <section class="collage py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold">Collage Gallery</h2>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6" style="
+                justify-content: space-around;
+                display: flex;
+                flex-direction: column;">
+                    <div class="rounded-2">
+                        <img src="resource/collage-1.svg" alt="Image 1">
+                    </div>
+                    <div class="row py-2">
+                        <div class="rounded-2 col-6">
+                            <img src="resource/collage-2.svg" alt="Image 2">
+                        </div>
+                        <div class="rounded-2 col-6">
+                            <img src="resource/collage-3.svg" alt="Image 3">
+                        </div>
+                    </div>
 
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="row py-2">
+                        <div class="rounded-2 col-6">
+                            <img src="resource/collage-4.svg" alt="Image 4">
+                        </div>
+                        <div class="rounded-2 col-6">
+                            <img src="resource/collage-5.svg" alt="Image 5">
+                        </div>
+                    </div>
+                    <div class="rounded-2">
+                        <img src="resource/collage-6.svg" alt="Image 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- end collage -->
+    <!-- start footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Pref About BATU</h4>
+                <p>Lorem ipsum posuere cursus amet dolor <br>sit velit sem in rhoncus sagittis odio <br> volutpat aenean
+                    in gravida diam amet<br> vulputate tincidunt proin fusce ultrices <br>fermentum vivamus eget</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Our Faciltes</h4>
+                <div class="facility">
+                    <p>College of Industry<br> and Energy <br>Technology</p>
+                    <p>Faculty of Health <br>Sciences <br> Technology </p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Explore More</h4>
+                <ul>
+                    <li>
+                        <a1 href="#">News</a1>
+                    </li>
+                    <li>
+                        <a1 href="#">Site map</a1>
+                    </li>
+                    <li>
+                        <a1 href="#">About us</a1>
+                    </li>
+                    <li>
+                        <a1 href="#">Join us</a1>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact us</h4>
+                <p>batu@contact.com</p>
+                <p>+1 (555) 123-4567</p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
     <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
