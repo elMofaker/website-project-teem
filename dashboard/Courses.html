@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./posts/posts.css">
+    <title>Courses</title>
+    <style>
+
+        .sidebar {
+            width: 20vw;
+            min-width: 200px;
+            background-color: #ffffff;
+            padding: 2vw;
+            box-sizing: border-box;
+            border-right: 1px solid #ccc;
+        }
+
+        .sidebar .sidebar-header {
+            font-size: clamp(35px, 2.5vw, 32px);
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 14vh;
+            margin-top: 25px;
+        }
+
+        .sidebar a {
+            color: #7c8088;
+            text-decoration: none;
+            display: block;
+            margin: 1.5vh 0;
+            font-size: clamp(24px, 1.2vw, 18px);
+        }
+
+        .sidebar a:hover {
+            color: #084af0;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+
+        .main-header {
+            font-size: clamp(30px, 3vw, 40px);
+            font-weight: bold;
+            color: #3479ca;
+            border-bottom: 1px solid #ccc;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            padding: 4vw;
+        }
+
+        .main_con {
+            background-color: #e4ecf3;
+            padding: 6vw;
+            border-radius: 8px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 0.5vw;
+            margin-bottom: 3vh;
+            align-items: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            /* Smaller width */
+        }
+
+        .form-group label {
+            font-weight: 700;
+            /* More bold */
+            color: #333;
+            margin-bottom: 0.5vh;
+            font-size: clamp(30px, 1.5vw, 20px);
+        }
+
+        .dropdown {
+            padding: 1vh;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: clamp(28px, 1vw, 14px);
+            width: 80%;
+            /* Smaller width */
+            box-sizing: border-box;
+        }
+
+        .timetable-section {
+            margin-top: 2vh;
+        }
+
+        .timetable-section h2 {
+            color: #333;
+            font-size: clamp(36px, 1.8vw, 22px);
+            margin-bottom: 1vh;
+        }
+
+        .timetable-file {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+            color: #1A73E8;
+            font-weight: bold;
+            font-size: clamp(25px, 1vw, 14px);
+            padding: 1vh 1.5vw;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            width: 90%;
+            /* Smaller width */
+            box-sizing: border-box;
+        }
+
+        .file-icons {
+            display: flex;
+            gap: 0.5vw;
+            margin-left: auto;
+        }
+
+        .file-icon {
+            width: 1.5vw;
+            height: 1.5vw;
+            min-width: 18px;
+            min-height: 18px;
+            stroke: #1A73E8;
+            cursor: pointer;
+        }
+
+        .delete-icon {
+            stroke: #FF0000;
+        }
+
+        .file-name {
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Media query for small screens */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                width: 50%;
+                max-width: 250px;
+                height: 100%;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                background-color: #ffffff;
+                border-right: 1px solid #ccc;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                cursor: pointer;
+                z-index: 1100;
+            }
+
+            .hamburger div {
+                width: 30px;
+                height: 4px;
+                background-color: #333;
+                margin: 5px 0;
+            }
+
+            /* Main content adjustments */
+            .main-content {
+                margin-left: 10%;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 1.5vh;
+                align-items: flex-start;
+            }
+
+            .form-group {
+                width: 100%;
+                /* Full width for small screens */
+            }
+
+            .dropdown {
+                padding: 0.8vh;
+                font-size: 14px;
+                width: 90%;
+                /* Full width on mobile */
+            }
+
+            .timetable-file {
+                width: 90%;
+                font-size: 16px;
+                margin: -5 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <nav class="sidebar" aria-label="Main navigation">
+            <div class="sidebar-header">
+                <h2>BATU Dashboard</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#view-posts" class="nav-link active" data-page="view-posts"><i
+                            class="fas fa-home icon active-icon"></i><span class="link-text">View Posts</span></a></li>
+                <li><a href="#new-post" class="nav-link" data-page="new-post"><i class="fas fa-plus icon"></i><span
+                            class="link-text">New Post</span></a></li>
+                <li><a href="#courses" class="nav-link" data-page="courses"><i class="fas fa-book icon"></i><span
+                            class="link-text">Courses</span></a></li>
+            </ul>
+        </nav>
+        <div class="main_con">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="college">Choose The College:</label>
+                    <select id="college" class="dropdown" onchange="updateDepartments()">
+                        <option value="College of Industry and Energy">College of Industry and Energy</option>
+                        <option value="College of Health Sciences">College of Health Sciences</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department">Choose The Department:</label>
+                    <select id="department" class="dropdown">
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Railway Technology">Railway Technology</option>
+                        <option value="Food Industries Technology">Food Industries Technology</option>
+                        <option value="Spinning and Weaving Technology">Spinning and Weaving Technology</option>
+                        <option value="Tractors and Agricultural Equipment">Tractors and Agricultural Equipment</option>
+                    </select>
+                </div>
+            </div>
+            <div class="timetable-section">
+                <h2>The Timetable</h2>
+                <div id="timetable" class="timetable-file">
+                    <span class="file-name">Choose File</span>
+                    <div class="file-icons">
+                        <svg class="file-icon delete-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Delete">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                            </path>
+                        </svg>
+                        <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" title="Edit">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </div>
+                    <input type="file" id="fileInput" style="display: none;" onchange="displayFileName()">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('open');
+        }
+        function displayFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const fileNameSpan = document.querySelector('.file-name');
+            if (fileInput.files.length > 0) {
+                fileNameSpan.textContent = fileInput.files[0].name;
+            } else {
+                fileNameSpan.textContent = 'Choose File';
+            }
+        }
+        document.querySelector('.file-name').addEventListener('click', () => {
+            document.getElementById('fileInput').click();
+        });
+    </script>
+</body>
+
+</html>

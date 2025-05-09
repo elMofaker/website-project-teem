@@ -1,0 +1,433 @@
+/* ===== Global Variables & Base Styles ===== */
+:root {
+    --primary-color: #2D60FF;
+    --inactive-color: #B6B6B6;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --danger-color: #f72585;
+    --success-color: #4cc9f0;
+    --warning-color: #f8961e;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --black-color: #000000;
+    --gray-color: #6c757d;
+    --border-color: #dee2e6;
+    --sidebar-width: 240px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* ===== Dashboard Layout Structure ===== */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== Sidebar Component Styles ===== */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+    padding: 1.5rem;
+    border-right: 1px solid var(--border-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.sidebar h2 {
+    font-size: 1.25rem;
+    color: var(--black-color);
+    font-weight: 600;
+}
+
+/* ===== Navigation Menu Styles ===== */
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--inactive-color);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a:focus {
+    background-color: rgba(45, 96, 255, 0.05);
+    color: var(--primary-color);
+}
+
+.sidebar-menu a.active {
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.sidebar-menu li a.active::after {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--primary-color);
+    border-radius: 0 3px 3px 0;
+}
+
+/* ===== Navigation Icons ===== */
+.sidebar-menu .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    color: var(--inactive-color);
+}
+
+.sidebar-menu a:hover .icon,
+.sidebar-menu a.active .icon {
+    color: var(--primary-color);
+}
+
+.sidebar-menu .icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: inherit;
+}
+
+.sidebar-menu .icon svg * {
+    stroke: currentColor;
+    fill: currentColor;
+    transition: all 0.3s ease;
+}
+
+/* ===== Header & User Controls ===== */
+.content-header {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-width);
+    right: 0;
+    height: 75px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 5px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-profile {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user-icon {
+    font-size: 2.2rem;
+    color: #B6B6B6;
+    transition: all 0.3s ease;
+}
+
+.user-profile:hover .user-icon {
+    transform: scale(1.1);
+}
+
+/* ===== Main Content Area ===== */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+    margin-top: 90px;
+}
+
+/* ===== Posts Section Layout ===== */
+.all-posts-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.all-posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.see-all-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.see-all-link:hover {
+    color: var(--primary-color);
+}
+
+/* ===== Post Cards Styling ===== */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    position: relative;
+}
+
+.post-actions {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.post-author {
+    margin: 0;
+    color: #2D60FF;
+    font-size: 1rem;
+    position: relative;
+    top: -2px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-content {
+    flex-grow: 1;
+    padding: 15px 20px;
+    color: #B1B1B1;
+    line-height: 1.6;
+    font-size: 0.75rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: bold;
+    padding: 10px 30px;
+}
+
+.post-footer {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-thumbnail {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-views {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: black;
+    font-size: 0.85rem;
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    padding: 2px 5px;
+    font-weight: bold;
+}
+
+/* ===== Badge Styles ===== */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge.post {
+    background: #2D60FF;
+    color: white;
+}
+
+.badge.announcement {
+    background: #f8961e;
+    color: white;
+}
+
+.badge.event {
+    background: #4cc9f0;
+    color: white;
+}
+
+.post-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Interactive Elements ===== */
+.settings-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    padding: 5px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: #F5F7FA;
+    border-radius: 50%;
+    padding: 5px 11px;
+}
+
+.settings-btn:hover {
+    color: #2D60FF;
+    transform: scale(1.1);
+}
+
+/* ===== Responsive Design Breakpoints ===== */
+@media (max-width: 1024px) {
+    .posts-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 1rem 0.5rem;
+    }
+
+    .sidebar h2,
+    .sidebar-menu span {
+        display: none;
+    }
+
+    .sidebar-menu a {
+        justify-content: center;
+        padding: 0.75rem;
+    }
+
+    .sidebar-menu .icon {
+        margin-right: 0;
+    }
+
+    .content-header {
+        left: 70px;
+        height: 70px;
+        padding: 0 1rem;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 1.5rem;
+        margin-top: 70px;
+    }
+
+    .posts-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* eidt jo */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #F5F7FA;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    z-index: 1000;
+    min-width: 120px;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    width: 100%;
+    padding: 8px 12px;
+    background: none;
+    border: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 2px 0;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}

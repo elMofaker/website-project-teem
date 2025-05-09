@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BATU Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #1c1c1c;
+      color: #000;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #1c1c1c;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 40px;
+      font-size: 18px;
+    }
+
+    .menu a {
+      color: #bbb;
+      display: block;
+      margin: 15px 0;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .menu a.active, .menu a:hover {
+      color: white;
+      font-weight: bold;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .main {
+      flex: 1;
+      background-color: white;
+      padding: 30px;
+    }
+
+    .main h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .toggle-switch input {
+      appearance: none;
+      width: 40px;
+      height: 20px;
+      background: #ccc;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch input::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+
+    .toggle-switch input:checked {
+      background: #1976d2;
+    }
+
+    .toggle-switch input:checked::before {
+      transform: translateX(20px);
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .tabs button {
+      padding: 10px 15px;
+      margin-right: 5px;
+      border: none;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .tabs button:hover, .tabs button.active {
+      background: #ccc;
+      font-weight: bold;
+    }
+
+    .upload-btn {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      float: right;
+      margin-top: -42px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+
+    .post-btn {
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div>
+        <h2>BATU Dashboard</h2>
+        <nav class="menu">
+          <a href="#">View Posts</a>
+          <a href="#" class="active">New Post</a>
+          <a href="#">Courses</a>
+        </nav>
+      </div>
+      <p class="footer">Main Dashboard</p>
+    </aside>
+
+    <section class="main">
+      <h1>New Post</h1>
+      <div class="top-bar">
+        <div class="user-profile">
+          <img src="https://via.placeholder.com/40" alt="User">
+          <strong>youssef mahmoud</strong>
+        </div>
+        <div class="toggle-switch">
+          <span>Post As Admin</span>
+          <input type="checkbox">
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="active">Post</button>
+        <button>News</button>
+        <button>Announcement</button>
+        <button class="upload-btn">Add Photo / Video</button>
+      </div>
+
+      <textarea placeholder="What's on your Mind ?"></textarea>
+      <button class="post-btn">Post</button>
+    </section>
+  </div>
+</body>
+</html>

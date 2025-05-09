@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BATU Dashboard</title>
+  <link rel="stylesheet" href="posts.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="dashboard">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h2>BATU Dashboard</h2>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="#view-posts" class="nav-link active" data-page="view-posts"><i
+              class="fas fa-home icon active-icon"></i><span class="link-text">View Posts</span></a></li>
+        <li><a href="#new-post" class="nav-link" data-page="new-post"><i class="fas fa-plus icon"></i><span
+              class="link-text">New Post</span></a></li>
+        <li><a href="#courses" class="nav-link" data-page="courses"><i class="fas fa-book icon"></i><span
+              class="link-text">Courses</span></a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="content-header">
+        <h1 class="page-title">Overview</h1>
+        <div class="header-actions">
+          <button class="user-profile" aria-label="User profile">
+            <i class="fas fa-user-circle user-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <section class="all-posts-section">
+        <div class="all-posts-header">
+          <h4>All Posts</h4>
+          <a href="#" class="see-all-link">See All</a>
+        </div>
+
+        <article class="post-card announcement-card">
+          <div class="post-header">
+            <div class="author-info">
+              <i class="fas fa-user-circle user-icon"></i>
+              <h3 class="post-author">Mazen Mohamed</h3>
+            </div>
+            <div class="dropdown">
+              <button class="settings-btn" onclick="toggleDropdown(this)">
+                <img src="../../resource/icon-list.svg" />
+              </button>
+              <div class="dropdown-menu p-2">
+                <button class="dropdown-item " style="background-color: red; color: white;"><img
+                    src="../../resource/posts-icon-minu-1.svg" alt="icon" /> Edit</button>
+                <button class="dropdown-item " style="background-color: blue; color: white;"><img
+                    src="../../resource/posts-icon-minu-2.svg" alt="icon" /> Delete</button>
+                <button class="dropdown-item " style="background-color: green; color: white;"><img
+                    src="../../resource/posts-icon-minu-3.svg" alt="icon" /> Share</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-content">
+            <p class="">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magni iusto quas libero ipsum
+              architecto reiciendis optio quod vitae sequi officia voluptate odit quae voluptates eveniet corrupti,
+              repudiandae possimus ipsa!
+            </p>
+          </div>
+
+          <div class="post-footer">
+            <div class="post-meta-left">
+              <span class="post-badge fw-bold">Post</span>
+            </div>
+            <div class="post-meta-right">
+              <div class="post-views">
+                <i class="fas fa-eye"></i>
+                <span class="fw-bold">150</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const activePage = localStorage.getItem('activePage');
+      if (activePage) {
+        const activeLink = document.querySelector(`.nav-link[data-page="${activePage}"]`);
+        if (activeLink) setActiveLink(activeLink);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          setActiveLink(this);
+          localStorage.setItem('activePage', this.getAttribute('data-page'));
+        });
+      });
+
+      window.toggleDropdown = function (btn) {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+        const menu = btn.nextElementSibling;
+        menu.classList.toggle('show');
+      };
+
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+        }
+      });
+
+      function setActiveLink(activeElement) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const icon = link.querySelector('.icon');
+          icon.classList.remove('active-icon');
+        });
+
+        activeElement.classList.add('active');
+        activeElement.querySelector('.icon').classList.add('active-icon');
+      }
+    });
+  </script>
+</body>
+
+</html>
