@@ -16,12 +16,12 @@ const totalSlides = dom.slides.length;
 
 // Initialize Slider
 const initSlider = () => {
-    dom.dotsContainer.innerHTML = Array.from({length: totalSlides}, 
+    dom.dotsContainer.innerHTML = Array.from({ length: totalSlides },
         (_, i) => `<span class="dot" data-index="${i}"></span>`).join('');
-    
+
     const updateSlider = () => {
         dom.slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        document.querySelectorAll('.dot').forEach(dot => 
+        document.querySelectorAll('.dot').forEach(dot =>
             dot.classList.toggle('active', +dot.dataset.index === currentIndex));
     };
 
@@ -48,12 +48,12 @@ const handleMobileNav = () => {
 const handleDropdowns = e => {
     const isDropdownToggle = e.target.closest('.dropdown > a');
     const dropdown = e.target.closest('.dropdown');
-    
+
     if (isDropdownToggle) {
         e.preventDefault();
         dropdown.classList.toggle('dropdown-active');
     }
-    
+
     if (!e.target.closest('.dropdown')) {
         dom.dropdowns.forEach(d => d.classList.remove('dropdown-active'));
     }
@@ -68,3 +68,18 @@ document.addEventListener('click', e => {
 
 // Initialize
 initSlider();
+
+
+// contact
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("fullName").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    console.log("Full Name:", name);
+    console.log("Subject:", subject);
+    console.log("Message:", message);
+
+    alert("Your message has been sent!");
+});
