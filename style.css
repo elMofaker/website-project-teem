@@ -443,6 +443,7 @@ header {
     background: white;
     border: 2px solid #00796b;
     border-radius: 10px;
+    overflow: hidden;
 
 
     h2 {
