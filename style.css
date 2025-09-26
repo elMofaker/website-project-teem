@@ -437,31 +437,31 @@ header {
 /* end collage */
 /* start contact */
 .contact-container {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 20px;
+    /* max-width: 900px; */
+    /* margin: 50px auto; */
+    /* padding: 20px; */
     background: white;
     border: 2px solid #00796b;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
 
 
     h2 {
         text-align: center;
         color: #2D7C7F;
-        width: 800px;
+        /* width: 800px; */
         size: 24px;
         line-height-step: 100%;
         letter-spacing: 0%;
-        left: 580px;
+        /* left: 580px; */
 
     }
 
     .contact-box {
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;
-        padding-top: 20px;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* gap: 30px; */
+        /* padding-top: 20px; */
     }
 
     form {
@@ -469,34 +469,35 @@ header {
         display: flex;
         flex-direction: column;
         color: #C3C3C3;
+        justify-content: center;
     }
 
     input,
     textarea {
-        width: 310px;
+        /* width: 310px; */
         margin-bottom: 15px;
         padding: 12px;
         font-size: 16px;
         border: 1px solid #C3C3C3;
         border-radius: 8px;
         border-top: 1px;
-        top: 298px;
+        /* top: 298px; */
         gap: 10px;
     }
 
     textarea {
-        width: 300px;
-        height: 170px;
-        top: 298px;
+        /* width: 300px; */
+        /* height: 170px; */
+        /* top: 298px; */
         padding: 20px;
         gap: 10px;
         resize: none;
     }
 
     button {
-        width: 186px;
-        height: 45px;
-        top: 547px;
+        /* width: 186px; */
+        /* height: 45px; */
+        /* top: 547px; */
         gap: 10px;
         padding: 10px;
         font-size: 16px;
